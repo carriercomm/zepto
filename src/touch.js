@@ -19,19 +19,13 @@
   }
 
   var longTapDelay = 750;
-  var swipeThreshold = 10;
+  var swipeThreshold = 20;
 
   function longTap(){
     if (touch.last && (Date.now() - touch.last >= longTapDelay)) {
       touch.el.trigger('longTap');
       touch = {};
     }
-  }
-
-  function ghostClickHandler(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      document.removeEventListener('click', ghostClickHandler, true);
   }
 
   $(document).ready(function(){
