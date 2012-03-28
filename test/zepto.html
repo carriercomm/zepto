@@ -1138,6 +1138,11 @@
 
         input.val(function(i, val){ return val.replace('Hello', 'Bye') });
         t.assertEqual('Bye again', input.val());
+
+        // using assertIdentical vs assertEqual here b/c we want to ensure
+        // that this returns undefined, and not null. assertEqual does ==
+        // comparison, whereas assertIdentical does ===
+        t.assertIdentical(undefined, $('nonexistant-elem').val());
       },
 
       testChaining: function(t){
