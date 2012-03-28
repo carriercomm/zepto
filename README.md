@@ -211,6 +211,16 @@ Tapping:
 $('some selector').tap(function(){ ... });
 ```
 
+Single Tap:
+
+Only use this instead of "tap" if you're using the "doubleTap" event. It it will give you a 250
+ms buffer to be able to differentiate between a single tap and a double tap. Don't use it if you're not
+using "doubleTap" since it will cause a 250 ms delay, which could lead to a bad user experience.
+
+``` js
+$('some selector').singleTap(function(){ ... });
+```
+
 Double-tapping:
 
 ``` js
@@ -361,7 +371,9 @@ If you encounter bugs, please follow these steps:
 1. First, try if the bug is fixed in the latest Zepto.js master branch:
    Get it from http://github.com/madrobby/zepto.
 
-2. Submit the bug on our issue tracker:
+2. If you don't know it yet, read http://github.github.com/github-flavored-markdown/
+
+3. Submit the bug on our issue tracker:
    http://github.com/madrobby/zepto/issues
 
 Let us know in detail what is going on, including the exact browser version you're on
@@ -388,15 +400,25 @@ Checklist for submitting patches:
 * Run `rake whitespace` to clean up whitespace in code & tests
 * Use Github's pull request system to submit patches
 
+# Running tests
+
 If you submit patches, please include tests.
 
-Also, Zepto.js contains some non-jQuery extensions, that are geared towards mobile devices.
+Zepto tests are written using Evidence.js and can be found
+in the `test` folder. See https://github.com/tobie/Evidence for more info on Evidence.
 
-Visit http://zeptojs.com/
+Simply add your tests (see existing tests as templates) and then view the HTML file in a browser).
+For detailed results, see the JavaScript console in your browser.
 
-Join Zepto.js Convore group https://convore.com/zeptojs/, #zepto on irc.freenode.net and stay updated on http://twitter.com/zeptojs
+_There's experimental support for automatically running tests on the command line and integrating them
+with a continuous integration server, using the `jasmine-headless-webkit` Rubygem, which in turnrequires
+Qt to be installed and a `CI` environment variable set (you can then run `bundle` to install the
+required dependencies and run `rake test` to run the tests). (This is not for the faint of heart and
+right now is experimental only, so don't blame us if you can't get it to work!)_
 
-Have fun!
+IRC channel: #zepto on irc.freenode.net — stay updated on http://twitter.com/zeptojs
+
+Remember to have fun!
 
 # License
 
