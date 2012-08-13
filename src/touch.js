@@ -52,8 +52,6 @@
         touch.x1 = touch.x2 = touch.y1 = touch.y2 = touch.last = 0;
       } else if ('last' in touch) {
         touch.el.trigger('tap');
-        e.preventDefault();
-
         touchTimeout = setTimeout(function(){
           touchTimeout = null;
           touch.el.trigger('singleTap');
